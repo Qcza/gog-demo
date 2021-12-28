@@ -4,6 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -26,5 +28,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
 }

@@ -1,0 +1,27 @@
+.game-spot {
+    padding: 28px 0 20px;
+
+   .title {
+     margin-bottom: 20px;
+   }
+
+  .image-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      height: 370px;
+      width: fit-content;
+      object-position: center;
+    }
+
+    app-button {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}

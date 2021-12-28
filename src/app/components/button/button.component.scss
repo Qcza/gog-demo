@@ -1,0 +1,73 @@
+@import '~src/assets/styles/variables';
+
+button {
+  font-family: $font-family;
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  user-select: none;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.inactive {
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 0.88;
+  }
+
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &.regular {
+    padding: 10px 14px;
+
+    > span {
+      min-width: 104px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+  }
+
+  &.small {
+    padding: 2px 7px 4px 8px;
+
+    > span {
+      font-size: 13px;
+      line-height: 15.23px;
+      font-weight: 600;
+    }
+  }
+
+  &.primary {
+    background: linear-gradient(0deg, $violet 0%, $light-violet 100%), $black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(108, 54, 173, 0.8);
+  }
+
+  &.secondary {
+    background: linear-gradient(0deg, $green 0%, $light-green 100%), $black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 117, 77, 0.8);
+  }
+
+  &.outlined {
+    background: $light-gray-2;
+    border: 1px solid $medium-gray-2;
+    box-shadow: 0 1px 1px rgba(198, 198, 198, 0.5);
+
+    > span {
+      color: $medium-gray;
+    }
+  }
+}

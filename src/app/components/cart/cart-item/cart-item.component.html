@@ -1,0 +1,12 @@
+<div class="cart-item" role="listitem">
+  <img alt="item-image" [src]="item?.imageUrl">
+  <div class="data-row">
+    <span class="name">
+      <app-typography fontWeight="semi-bold">{{item?.name}}</app-typography>
+    </span>
+    <span role="button" (click)="removeHandler()">
+      <app-typography [underline]="true" variant="xsm-label" [uppercase]="false">Remove</app-typography>
+    </span>
+  </div>
+  <app-typography variant="sm-label" fontWeight="semi-bold">${{item?.price}}</app-typography>
+</div>

@@ -1,0 +1,59 @@
+@import "~src/assets/styles/variables";
+
+.cart-item {
+  display: flex;
+  padding: 4.5px 8px 4.5px 5px;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+  border-bottom: 1px solid $light-gray-3;
+  background-color: $white;
+
+  &:first-of-type {
+    border-top: 1px solid $light-gray-3;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+
+  &:hover {
+    .data-row > span[role='button'] {
+      display: initial;
+    }
+  }
+
+  > img {
+    height: 60px;
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .data-row {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 9px;
+    justify-content: space-between;
+    overflow: hidden;
+
+    > span.name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    > span[role='button'] {
+      cursor: pointer;
+      width: fit-content;
+      display: none;
+      &:hover {
+        opacity: 0.88;
+      }
+    }
+
+
+  }
+}

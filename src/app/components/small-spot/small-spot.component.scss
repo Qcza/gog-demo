@@ -1,0 +1,41 @@
+@import '~src/assets/styles/variables';
+
+.small-spot {
+  display: flex;
+  flex-direction: column;
+  width: 196px;
+  height: 186px;
+  overflow: hidden;
+  background-color: $light-gray-2;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  > img {
+    height: 110px;
+    width: fit-content;
+    object-position: center;
+  }
+
+  > div {
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .name-wrapper {
+      padding: 10.5px 11px 0;
+      overflow: hidden;
+    }
+
+    .price-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 4.5px 6px 7px;
+
+      :first-child:not(:last-child) {
+        margin-right: 6px;
+      }
+    }
+  }
+}

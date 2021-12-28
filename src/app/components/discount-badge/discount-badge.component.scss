@@ -1,0 +1,8 @@
+@import "~src/assets/styles/variables";
+
+.discount-badge {
+  background-color: $green;
+  width: fit-content;
+  padding: 2px 7px 4px 6px;
+  border-radius: 2px;
+}

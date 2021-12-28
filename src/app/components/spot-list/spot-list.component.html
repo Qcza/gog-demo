@@ -1,0 +1,8 @@
+<div class="spot-list" role="list">
+  <app-small-spot
+    *ngFor="let product of products"
+    [product]="product"
+    [inCart]="cartIds.includes(product.id)"
+    (addToCart)="addToCartHandler($event)">
+  </app-small-spot>
+</div>

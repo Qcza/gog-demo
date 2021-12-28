@@ -1,0 +1,4096 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Cart",
+            "id": "interface-Cart-a0e1c8eda4c3844b43bbf5b3de2c190b1d3ef30fac50a393a4a6eaf8507fbf1a133ed7e3ea286e27a3aa9e6390c4ad3efd8b21fa27083e44857617e54a618c77",
+            "file": "src/models/Cart.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Product } from './Product';\n\nexport type CartItem = Pick<Product, 'id' | 'name' | 'imageUrl' | 'price'> & {productId: string}\n\nexport interface Cart {\n  itemsNo: number;\n  price: string;\n  items: CartItem[];\n}\n",
+            "properties": [
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CartItem[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "itemsNo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "price",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "Product",
+            "id": "interface-Product-a770c35c630553109939b1af142125b6f7a930fb1851292b49e2301e0676a24cbcc3bca34bce1c1307551bbc4ca41ab3e1fe02c42347d0cd298b5948c6d434cd",
+            "file": "src/models/Product.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Product {\n  id: string;\n  name: string;\n  price: string;\n  imageUrl: string;\n  owned: boolean;\n  discount?: string;\n}\n\nexport type DailyProduct = Pick<Product, 'id' | 'imageUrl'>;\n",
+            "properties": [
+                {
+                    "name": "discount",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "imageUrl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "owned",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "price",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "CartService",
+            "id": "injectable-CartService-285a161a990ac14751880d7d4a246d6a92fb6f874e655aeccea4c6a094b08c38bcbdb42a16d95803b9e4f45c009e63225afc229015513007821b2abc3635de12",
+            "file": "src/app/services/cart/cart.service.ts",
+            "properties": [
+                {
+                    "name": "prepareCart",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                }
+            ],
+            "methods": [
+                {
+                    "name": "addToCart",
+                    "args": [
+                        {
+                            "name": "productId",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<Cart>",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "productId",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "clearCart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<Cart>",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getCart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<Cart>",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "removeFromCart",
+                    "args": [
+                        {
+                            "name": "itemId",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<Cart>",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "itemId",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { Cart, CartItem } from '../../../models/Cart';\nimport { map } from 'rxjs/operators';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CartService {\n  constructor(private http: HttpClient) {\n  }\n\n  getCart(): Observable<Cart> {\n    return this.http.get<CartItem[]>('/api/cart').pipe(map(this.prepareCart));\n  }\n\n  addToCart(productId: string): Observable<Cart> {\n    return this.http.put<CartItem[]>('/api/cart', {productId}).pipe(map(this.prepareCart))\n  }\n\n  removeFromCart(itemId: string): Observable<Cart> {\n    return this.http.delete<CartItem[]>('/api/cart', {params: {itemId}}).pipe(map(this.prepareCart))\n  }\n\n  clearCart(): Observable<Cart> {\n    return this.http.delete<CartItem[]>('/api/cart').pipe(map(this.prepareCart))\n  }\n\n\n  prepareCart = (items: CartItem[]): Cart => ({\n    items,\n    itemsNo: items.length,\n    price: items.map((item) => Number(item.price)).reduce((acc, curr) => acc + curr, 0).toFixed(2),\n  })\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "MockServerService",
+            "id": "injectable-MockServerService-bc6800a4f9650b99f5e7332c257ea96d7773301ccc44d0001dbb5dfb9f93eff03f6099644b8762cf39c0345f1d2e097050de530e5da076e59629a750d4b445b9",
+            "file": "src/app/services/mock-server/mock-server.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "create",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Server",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { createServer, Server } from 'miragejs';\nimport { Injectable } from '@angular/core';\nimport { mapProductToCartItem } from './utils';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MockServerService {\n\n  public create(): Server {\n    return createServer({\n      routes() {\n        this.namespace = 'api';\n\n        this.get('/products', (schema) => {\n          return schema.db.products;\n        })\n\n        this.get('/daily', (schema) => {\n          return schema.db.daily;\n        })\n\n        this.get('/cart', (schema) => {\n          return schema.db.cartItems;\n        })\n\n        this.put('/cart', (schema, request) => {\n          const { productId } = JSON.parse(request.requestBody);\n          const product = schema.db.products.find(productId);\n          const cartItem = mapProductToCartItem(product);\n          schema.db.cartItems.insert(cartItem);\n\n          return schema.db.cartItems;\n        })\n\n        this.del('/cart', (schema, request) => {\n          const { itemId } = request.queryParams;\n          schema.db.cartItems.remove(itemId);\n\n          return schema.db.cartItems;\n        })\n      },\n\n      seeds(server) {\n        server.db.loadData({\n          cartItems: [],\n          daily: [{\n            imageUrl: 'assets/images/game.png'\n          }],\n          products: [\n            {\n              name: 'Oddworld: Strager\\'s Wrath',\n              price: '9.99',\n              imageUrl: 'assets/images/img.png',\n              discount: '0.5',\n              inCart: false,\n              owned: false\n            },\n            {\n              name: 'Chaos on deponia',\n              price: '9.99',\n              imageUrl: 'assets/images/img2.png',\n              inCart: false,\n              owned: true\n            },\n            {\n              name: 'The settlers 2: gold edition',\n              price: '5.99',\n              imageUrl: 'assets/images/img3.png',\n              inCart: false,\n              owned: false\n            },\n            {\n              name: 'Neverwinter nights',\n              price: '9.99',\n              imageUrl: 'assets/images/img5.png',\n              discount: '0.5',\n              inCart: false,\n              owned: false\n            },\n            {\n              name: 'Assassin\\'s creed: director\\'s cut',\n              price: '9.99',\n              imageUrl: 'assets/images/img4.png',\n              inCart: false,\n              owned: false\n            }\n          ]\n        })\n      }\n    })\n  }\n}\n",
+            "type": "injectable"
+        },
+        {
+            "name": "ProductsService",
+            "id": "injectable-ProductsService-be59dcacf9db820090e5f1b2bc2b8c228ea719bd5678a846975a0e942995b21fb4094b847140de4ab77ee69147fc8f9cd34a78f07bb108e24a21d1a19ffa827c",
+            "file": "src/app/services/products/products.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getDaily",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<DailyProduct>",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getProducts",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<Product[]>",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { DailyProduct, Product } from '../../../models/Product';\nimport { map } from 'rxjs/operators';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProductsService {\n\n  constructor(private http: HttpClient) {\n  }\n\n  getProducts(): Observable<Product[]> {\n    return this.http.get<Product[]>('/api/products');\n  }\n\n  getDaily(): Observable<DailyProduct> {\n    return this.http.get<DailyProduct[]>('/api/daily').pipe(map(([daily]) => daily))\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-0935c1357fe109bb62447c8823ba1ffa4dab17abff4f4e387052b65303381e8d1bd5eb02e08a47f7b3eff16b8f42983d3cf4e820fb0b05796c1364cbc889a20c",
+            "file": "src/app/app.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "cart",
+                    "defaultValue": "new BehaviorSubject<Cart>(initCart)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "daily",
+                    "defaultValue": "this.productsService.getDaily()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "products",
+                    "defaultValue": "this.productsService.getProducts()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "addToCart",
+                    "args": [
+                        {
+                            "name": "product",
+                            "type": "Product",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "product",
+                            "type": "Product",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "clearCart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "removeFromCart",
+                    "args": [
+                        {
+                            "name": "cartItem",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "cartItem",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';\nimport { Product } from '../models/Product';\nimport { MockServerService } from './services/mock-server/mock-server.service';\nimport { ProductsService } from './services/products/products.service';\nimport { CartService } from './services/cart/cart.service';\nimport { BehaviorSubject } from 'rxjs';\nimport { Cart, CartItem } from '../models/Cart';\n\nconst initCart: Cart = {\n  items: [],\n  itemsNo: 0,\n  price: '0'\n}\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class AppComponent implements OnInit {\n  daily = this.productsService.getDaily();\n  products = this.productsService.getProducts();\n  cart = new BehaviorSubject<Cart>(initCart);\n\n  constructor(private mockServer: MockServerService, private productsService: ProductsService, private cartService: CartService) {\n  };\n\n  ngOnInit(): void {\n    this.mockServer.create();\n    this.cartService.getCart().subscribe((cart) => this.cart.next(cart));\n  }\n\n  addToCart(product: Product): void {\n    this.cartService.addToCart(product.id).subscribe((cart) => {\n      this.cart.next(cart)\n    });\n  }\n\n  removeFromCart(cartItem: CartItem): void {\n    this.cartService.removeFromCart(cartItem.id).subscribe((cart) => this.cart.next(cart))\n  }\n\n  clearCart(): void {\n    this.cartService.clearCart().subscribe((cart) => this.cart.next(cart))\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  z-index: 0;\n}\n\n.content {}\n",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "mockServer",
+                        "type": "MockServerService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "productsService",
+                        "type": "ProductsService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "cartService",
+                        "type": "CartService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "mockServer",
+                        "type": "MockServerService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "productsService",
+                        "type": "ProductsService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "cartService",
+                        "type": "CartService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<app-top-bar [cart]=\"cart | async\"\n             (clearCart)=\"clearCart()\"\n             (removeItemFromCart)=\"removeFromCart($event)\">\n</app-top-bar>\n<div class=\"layout\">\n  <div class=\"content\">\n    <app-game-spot *ngIf=\"daily | async as dailyData\" [product]=\"dailyData\"></app-game-spot>\n    <app-spot-list\n      *ngIf=\"products | async as productsData\"\n      [products]=\"productsData\"\n      [cart]=\"cart | async\"\n      (addToCart)=\"addToCart($event)\">\n    </app-spot-list>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-0e01fdaa6fc2f5c6315ee26700573e52e004c85f2627f93fc0f6f45cfeebb8aa0cb98e588e4a473ed5a4c2d2fe35a2af7f11965384638aa066fde19030b3cd26",
+            "file": "src/app/components/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "inactive",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'regular'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "ButtonSize",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "ButtonType",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "ButtonVariant",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "buttonClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "clickHandler",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { ButtonSize, ButtonType, ButtonVariant } from './button.type';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\n\nexport class ButtonComponent {\n  @Input() variant: ButtonVariant = 'primary';\n  @Input() size: ButtonSize = 'regular';\n  @Input() type: ButtonType = 'button';\n  @Input() label: string;\n  @Input() disabled: boolean;\n  @Input() inactive: boolean;\n\n  @Output() buttonClick = new EventEmitter<Event>();\n\n  clickHandler(e: Event): void {\n    this.buttonClick.emit(e);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '~src/assets/styles/variables';\n\nbutton {\n  font-family: $font-family;\n  border-radius: 2px;\n  box-sizing: border-box;\n  border: 0;\n  outline: 0;\n  user-select: none;\n  cursor: pointer;\n\n  &:disabled {\n    opacity: 0.5;\n    pointer-events: none;\n  }\n\n  &.inactive {\n    pointer-events: none;\n  }\n\n  &:hover {\n    opacity: 0.88;\n  }\n\n  > span {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-transform: uppercase;\n    color: $white;\n  }\n\n  &.regular {\n    padding: 10px 14px;\n\n    > span {\n      min-width: 104px;\n      font-size: 14px;\n      line-height: 22px;\n      font-weight: 600;\n    }\n  }\n\n  &.small {\n    padding: 2px 7px 4px 8px;\n\n    > span {\n      font-size: 13px;\n      line-height: 15.23px;\n      font-weight: 600;\n    }\n  }\n\n  &.primary {\n    background: linear-gradient(0deg, $violet 0%, $light-violet 100%), $black;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(108, 54, 173, 0.8);\n  }\n\n  &.secondary {\n    background: linear-gradient(0deg, $green 0%, $light-green 100%), $black;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 117, 77, 0.8);\n  }\n\n  &.outlined {\n    background: $light-gray-2;\n    border: 1px solid $medium-gray-2;\n    box-shadow: 0 1px 1px rgba(198, 198, 198, 0.5);\n\n    > span {\n      color: $medium-gray;\n    }\n  }\n}\n",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button (click)=\"clickHandler($event)\" [class]=\"[variant, size]\"  [type]=\"type\" [class.inactive]=\"inactive\" [disabled]=\"disabled\">\n  <span>{{label}}</span>\n</button>\n"
+        },
+        {
+            "name": "CartButtonComponent",
+            "id": "component-CartButtonComponent-716d559bec3acea3e49304e479f026f04c7c45b6c50759707c0a460b682ba7fb39ecadc7462eae40e32f31f3a07b7293dcc970a97612ba731f0d9611e8a5c59b",
+            "file": "src/app/components/cart/cart-button/cart-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-cart-button",
+            "styleUrls": [
+                "./cart-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./cart-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "active",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "itemsNo",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "buttonClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "clickHandler",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-cart-button',\n  templateUrl: './cart-button.component.html',\n  styleUrls: ['./cart-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CartButtonComponent {\n  @Input() active: boolean;\n  @Input() itemsNo = 0;\n\n  @Output() buttonClick = new EventEmitter<Event>();\n\n  clickHandler(e: Event): void {\n    this.buttonClick.emit(e);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"~src/assets/styles/variables\";\n\n.cart-button {\n  width: 58px;\n  height: 59px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  user-select: none;\n  box-sizing: border-box;\n\n  &.active {\n    background-color: $white;\n    border: solid rgba(184, 184, 184, 0.5);\n    border-width: 0 1px;\n  }\n}\n",
+                    "styleUrl": "./cart-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div role=\"button\" class=\"cart-button\" [class.active]=\"active\" (click)=\"clickHandler($event)\">\n  <img alt=\"cart-icon\" src=\"assets/icons/cart.svg\" >\n  <app-typography *ngIf=\"itemsNo > 0\" fontWeight=\"semi-bold\" color=\"#404040\">{{itemsNo}}</app-typography>\n</div>\n"
+        },
+        {
+            "name": "CartComponent",
+            "id": "component-CartComponent-ec44e23e8f48632c82af39e7da2b6395c3a9ba407e0d7dca3ef7179488875bcf0a9c94494726f1925529694822669b3c6dda759cbce2836784c5ea305a7501ff",
+            "file": "src/app/components/cart/cart.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-cart",
+            "styleUrls": [
+                "./cart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./cart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "cart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "Cart",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clearCart",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "removeItem",
+                    "defaultValue": "new EventEmitter<CartItem>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "active",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "cartElement",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'cartElement'"
+                        }
+                    ]
+                },
+                {
+                    "name": "unlisten",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clearCartHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 51,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "removeItemHandler",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "togglePopup",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  Component,\n  ElementRef, EventEmitter,\n  Input,\n  OnDestroy, Output,\n  Renderer2,\n  ViewChild\n} from '@angular/core';\nimport { Cart, CartItem } from '../../../models/Cart';\n\n@Component({\n  selector: 'app-cart',\n  templateUrl: './cart.component.html',\n  styleUrls: ['./cart.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CartComponent implements OnDestroy {\n  @ViewChild('cartElement') cartElement: ElementRef;\n\n  active: boolean;\n  unlisten: () => void;\n\n  @Input() cart: Cart;\n\n  @Output() clearCart = new EventEmitter<Event>();\n  @Output() removeItem = new EventEmitter<CartItem>();\n\n  constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef) {\n    this.unlisten = this.renderer.listen('window', 'click', (e) => {\n      if (this.active && !this.cartElement.nativeElement.contains(e.target)) {\n        this.togglePopup();\n      }\n    })\n  }\n\n  ngOnDestroy(): void {\n    this.unlisten?.();\n  }\n\n  togglePopup(): void {\n    this.active = !this.active;\n    this.cdr.markForCheck();\n  };\n\n  removeItemHandler(item: CartItem): void {\n    this.removeItem.emit(item);\n  }\n\n  clearCartHandler(event: Event): void {\n    this.clearCart.emit(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".cart {\n  position: relative;\n  z-index: 1;\n\n  :nth-child(2) {\n    position: absolute;\n    right: 0;\n    z-index: -1;\n  }\n}\n",
+                    "styleUrl": "./cart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 28,
+                "jsdoctags": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnDestroy"
+            ],
+            "templateData": "<div class=\"cart\" #cartElement>\n  <app-cart-button (buttonClick)=\"togglePopup()\" [active]=\"active\" [itemsNo]=\"cart?.itemsNo\"></app-cart-button>\n  <app-cart-popup\n    *ngIf=\"active\"\n    [cart]=\"cart\"\n    (removeItem)=\"removeItemHandler($event)\"\n    (clearCart)=\"clearCartHandler($event)\">\n  </app-cart-popup>\n</div>\n"
+        },
+        {
+            "name": "CartItemComponent",
+            "id": "component-CartItemComponent-bb8d7258a12cf134c51577ff109cab1f1eff2ffd010f86780e3e30c4bcdcda5a20f8a1e7fe827a1a324cef484bb430a8a209e1fc098046fa4c68905beb839e31",
+            "file": "src/app/components/cart/cart-item/cart-item.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-cart-item",
+            "styleUrls": [
+                "./cart-item.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./cart-item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "item",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "CartItem",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "remove",
+                    "defaultValue": "new EventEmitter<CartItem>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "removeHandler",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { CartItem } from '../../../../models/Cart';\n\n@Component({\n  selector: 'app-cart-item',\n  templateUrl: './cart-item.component.html',\n  styleUrls: ['./cart-item.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CartItemComponent {\n  @Input() item: CartItem\n\n  @Output() remove = new EventEmitter<CartItem>();\n\n  removeHandler(): void {\n    this.remove.emit(this.item);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"~src/assets/styles/variables\";\n\n.cart-item {\n  display: flex;\n  padding: 4.5px 8px 4.5px 5px;\n  align-items: center;\n  justify-content: space-between;\n  width: inherit;\n  border-bottom: 1px solid $light-gray-3;\n  background-color: $white;\n\n  &:first-of-type {\n    border-top: 1px solid $light-gray-3;\n  }\n\n  &:last-of-type {\n    border-bottom: none;\n  }\n\n\n  &:hover {\n    .data-row > span[role='button'] {\n      display: initial;\n    }\n  }\n\n  > img {\n    height: 60px;\n    width: 100px;\n    object-fit: cover;\n    object-position: center;\n  }\n\n  .data-row {\n    display: flex;\n    flex: 1;\n    flex-direction: column;\n    padding: 0 9px;\n    justify-content: space-between;\n    overflow: hidden;\n\n    > span.name {\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n    }\n\n    > span[role='button'] {\n      cursor: pointer;\n      width: fit-content;\n      display: none;\n      &:hover {\n        opacity: 0.88;\n      }\n    }\n\n\n  }\n}\n",
+                    "styleUrl": "./cart-item.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"cart-item\" role=\"listitem\">\n  <img alt=\"item-image\" [src]=\"item?.imageUrl\">\n  <div class=\"data-row\">\n    <span class=\"name\">\n      <app-typography fontWeight=\"semi-bold\">{{item?.name}}</app-typography>\n    </span>\n    <span role=\"button\" (click)=\"removeHandler()\">\n      <app-typography [underline]=\"true\" variant=\"xsm-label\" [uppercase]=\"false\">Remove</app-typography>\n    </span>\n  </div>\n  <app-typography variant=\"sm-label\" fontWeight=\"semi-bold\">${{item?.price}}</app-typography>\n</div>\n"
+        },
+        {
+            "name": "CartPopupComponent",
+            "id": "component-CartPopupComponent-0b86775e30281f9e31b0ee4eba5d3a86bf1ced730e74ba94aaf6b3f3d03e747a1d454c79711e28af47e514236022dd0e55217b831258ec32ac3b22dfb2266593",
+            "file": "src/app/components/cart/cart-popup/cart-popup.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-cart-popup",
+            "styleUrls": [
+                "./cart-popup.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./cart-popup.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "cart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clearCart",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "removeItem",
+                    "defaultValue": "new EventEmitter<CartItem>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Cart",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clearHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "parseLabel",
+                    "args": [
+                        {
+                            "name": "itemsNo",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "itemsNo",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "removeHandler",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Cart, CartItem } from '../../../../models/Cart';\n\n@Component({\n  selector: 'app-cart-popup',\n  templateUrl: './cart-popup.component.html',\n  styleUrls: ['./cart-popup.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class CartPopupComponent {\n  label: string;\n  data: Cart;\n\n  @Input() set cart(data: Cart) {\n    this.data = data;\n    this.label = this.parseLabel(data?.itemsNo ?? 0);\n  };\n\n  @Output() removeItem = new EventEmitter<CartItem>();\n  @Output() clearCart = new EventEmitter<Event>();\n\n  removeHandler(item: CartItem) {\n    this.removeItem.emit(item);\n  }\n\n  clearHandler(event: Event) {\n    this.clearCart.emit(event);\n  }\n\n  parseLabel(itemsNo: number): string {\n    return `${itemsNo} item${itemsNo === 1 ? '' : 's'} in cart`\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"~src/assets/styles/variables\";\n\n.cart-popup {\n  display: flex;\n  flex-direction: column;\n  width: 370px;\n  box-sizing: border-box;\n  border: solid rgba(184, 184, 184, 0.5);\n  border-width: 0 1px 1px;\n  background-color: $white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);\n\n\n  .top-row {\n    display: flex;\n    flex: 1;\n    align-items: center;\n    justify-content: space-between;\n    padding: 13px 10px 10.5px 9px;\n\n    > div {\n      :first-child {\n        margin-right: 8px;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./cart-popup.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "cart": {
+                    "name": "cart",
+                    "setSignature": {
+                        "name": "cart",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "data",
+                                "type": "Cart",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 14,
+                        "jsdoctags": [
+                            {
+                                "name": "data",
+                                "type": "Cart",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<div class=\"cart-popup\">\n  <div class=\"top-row\">\n    <app-typography variant=\"bg-label\" fontWeight=\"bold\">{{label}}</app-typography>\n    <div>\n      <app-typography variant=\"bg-label\" fontWeight=\"bold\">${{data?.price ?? 0}}</app-typography>\n      <app-button label=\"clear cart\" (buttonClick)=\"clearHandler($event)\" [disabled]=\"(data?.itemsNo ?? 0) < 1\"></app-button>\n    </div>\n  </div>\n  <ng-container *ngIf=\"data?.items\">\n    <app-cart-item *ngFor=\"let item of data.items\" [item]=\"item\" (remove)=\"removeHandler($event)\"></app-cart-item>\n  </ng-container>\n</div>\n"
+        },
+        {
+            "name": "DiscountBadgeComponent",
+            "id": "component-DiscountBadgeComponent-3dc345ab2482d6aa76f9c566e0eeb6e9bceaa47c0eff6ea74bb37f0a8be991b90f65b095f3f392cb70c2103e5d9c823673966fd23db0948c7ec392e27e6eb1f9",
+            "file": "src/app/components/discount-badge/discount-badge.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-discount-badge",
+            "styleUrls": [
+                "./discount-badge.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./discount-badge.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "percentage",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-discount-badge',\n  templateUrl: './discount-badge.component.html',\n  styleUrls: ['./discount-badge.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class DiscountBadgeComponent {\n  percentage: string;\n\n  @Input() set value(discount: string) {\n    this.percentage = `-${(Number(discount) * 100).toFixed()}%`\n  };\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"~src/assets/styles/variables\";\n\n.discount-badge {\n  background-color: $green;\n  width: fit-content;\n  padding: 2px 7px 4px 6px;\n  border-radius: 2px;\n}\n",
+                    "styleUrl": "./discount-badge.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "value": {
+                    "name": "value",
+                    "setSignature": {
+                        "name": "value",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "discount",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 12,
+                        "jsdoctags": [
+                            {
+                                "name": "discount",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<div class=\"discount-badge\">\n  <app-typography variant=\"sm-label\" color=\"#F2F2F2\">{{percentage}}</app-typography>\n</div>\n"
+        },
+        {
+            "name": "GameSpotComponent",
+            "id": "component-GameSpotComponent-f8efc2a00d6c772aaff1aa130cc4d636a254687035c4b3fb569e85b19ee47f97d88c44a954acaea694583f8b49679863231ed8870ec73b1d21e0313d5322c456",
+            "file": "src/app/components/game-spot/game-spot.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-game-spot",
+            "styleUrls": [
+                "./game-spot.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./game-spot.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "product",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "DailyProduct",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { DailyProduct } from '../../../models/Product';\n\n@Component({\n  selector: 'app-game-spot',\n  templateUrl: './game-spot.component.html',\n  styleUrls: ['./game-spot.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class GameSpotComponent {\n  @Input() product: DailyProduct;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".game-spot {\n    padding: 28px 0 20px;\n\n   .title {\n     margin-bottom: 20px;\n   }\n\n  .image-wrapper {\n    display: flex;\n    flex: 1;\n    overflow: hidden;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n\n    img {\n      height: 370px;\n      width: fit-content;\n      object-position: center;\n    }\n\n    app-button {\n      position: absolute;\n      z-index: -1;\n    }\n  }\n}\n",
+                    "styleUrl": "./game-spot.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"game-spot\">\n  <div class=\"title\">\n    <app-typography variant=\"bg-label\" fontWeight=\"bold\">game of the week</app-typography>\n  </div>\n  <div class=\"image-wrapper\">\n    <app-button label=\"A secret button that you should totally implement\" variant=\"secondary\"></app-button>\n    <img alt=\"game-of-the-week\" [src]=\"product?.imageUrl\">\n  </div>\n</div>\n"
+        },
+        {
+            "name": "SmallSpotComponent",
+            "id": "component-SmallSpotComponent-c214ba568f9c1baa2cc4dcee7d7f283ac6261281c4bcb344839d0ea3d4e1ddb902695383c774d1326a41016f3ae4f92d50136d9c6d9bc7d895d2c5917381c1da",
+            "file": "src/app/components/small-spot/small-spot.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-small-spot",
+            "styleUrls": [
+                "./small-spot.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./small-spot.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "inCart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "product",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "addToCart",
+                    "defaultValue": "new EventEmitter<Product>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "buttonDisabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "buttonInactive",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Product",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "labels",
+                    "defaultValue": "labels",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "priceLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "addToCartHandler",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setPriceLabel",
+                    "args": [
+                        {
+                            "name": "inCart",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "inCart",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Product } from '../../../models/Product';\n\nexport const labels = {\n  owned: 'owned',\n  inCart: 'in cart',\n} as const;\n\n@Component({\n  selector: 'app-small-spot',\n  templateUrl: './small-spot.component.html',\n  styleUrls: ['./small-spot.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SmallSpotComponent {\n  priceLabel: string;\n  data: Product;\n  buttonDisabled: boolean;\n  buttonInactive: boolean;\n  labels = labels;\n\n  @Input() set product(data: Product) {\n    this.data = data;\n    this.priceLabel = this.setPriceLabel()\n  };\n\n  @Input() set inCart(value: boolean) {\n    this.priceLabel = this.setPriceLabel(value);\n  };\n\n  @Output() addToCart = new EventEmitter<Product>();\n\n  addToCartHandler(): void {\n    this.addToCart.emit(this.data);\n  }\n\n  private setPriceLabel(inCart?: boolean): string {\n    const {owned, price} = this.data;\n    if (inCart) {\n      this.buttonInactive = true;\n      return this.labels.inCart;\n    }\n    if (owned) {\n      this.buttonDisabled = true;\n      return this.labels.owned;\n    }\n    this.buttonDisabled = false;\n    this.buttonInactive = false;\n    return `$${price}`;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '~src/assets/styles/variables';\n\n.small-spot {\n  display: flex;\n  flex-direction: column;\n  width: 196px;\n  height: 186px;\n  overflow: hidden;\n  background-color: $light-gray-2;\n  justify-content: space-between;\n  margin-bottom: 20px;\n\n  > img {\n    height: 110px;\n    width: fit-content;\n    object-position: center;\n  }\n\n  > div {\n    height: 76px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n\n    .name-wrapper {\n      padding: 10.5px 11px 0;\n      overflow: hidden;\n    }\n\n    .price-wrapper {\n      display: flex;\n      justify-content: flex-end;\n      align-items: center;\n      padding: 4.5px 6px 7px;\n\n      :first-child:not(:last-child) {\n        margin-right: 6px;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./small-spot.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "product": {
+                    "name": "product",
+                    "setSignature": {
+                        "name": "product",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "data",
+                                "type": "Product",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 22,
+                        "jsdoctags": [
+                            {
+                                "name": "data",
+                                "type": "Product",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "inCart": {
+                    "name": "inCart",
+                    "setSignature": {
+                        "name": "inCart",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 27,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<div class=\"small-spot\" role=\"listitem\">\n  <img alt=\"product-image\" [src]=\"data?.imageUrl\">\n  <div>\n    <div class=\"name-wrapper\">\n      <app-typography fontWeight=\"semi-bold\">{{data?.name}}</app-typography>\n    </div>\n    <div class=\"price-wrapper\">\n      <app-discount-badge *ngIf=\"data.discount\" [value]=\"data.discount\"></app-discount-badge>\n      <app-button [label]=\"priceLabel\"\n                  [disabled]=\"buttonDisabled\"\n                  [inactive]=\"buttonInactive\"\n                  size=\"small\"\n                  variant=\"outlined\"\n                  (buttonClick)=\"addToCartHandler()\">\n      </app-button>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "SpotListComponent",
+            "id": "component-SpotListComponent-b40969066fbd9ee7679208057c6df34bb98758db51e504754028ff1d16033e3c09e071932be462bbbd780c0db3d173f28a2020f32217a584adf6a13531dc5d83",
+            "file": "src/app/components/spot-list/spot-list.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-spot-list",
+            "styleUrls": [
+                "./spot-list.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./spot-list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "cart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "",
+                    "decorators": []
+                },
+                {
+                    "name": "products",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "Product[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "addToCart",
+                    "defaultValue": "new EventEmitter<Product>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "cartIds",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "addToCartHandler",
+                    "args": [
+                        {
+                            "name": "product",
+                            "type": "Product",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "product",
+                            "type": "Product",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Product } from '../../../models/Product';\nimport { Cart } from '../../../models/Cart';\n\n@Component({\n  selector: 'app-spot-list',\n  templateUrl: './spot-list.component.html',\n  styleUrls: ['./spot-list.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SpotListComponent {\n  cartIds: string[] = [];\n\n  @Input() products: Product[] = [];\n  @Input() set cart(cart: Cart) {\n    this.cartIds = cart.items.map((item) => item.productId)\n  }\n\n  @Output() addToCart = new EventEmitter<Product>()\n\n  addToCartHandler(product: Product): void {\n    this.addToCart.emit(product);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".spot-list {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n",
+                    "styleUrl": "./spot-list.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "cart": {
+                    "name": "cart",
+                    "setSignature": {
+                        "name": "cart",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "cart",
+                                "type": "Cart",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 15,
+                        "jsdoctags": [
+                            {
+                                "name": "cart",
+                                "type": "Cart",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<div class=\"spot-list\" role=\"list\">\n  <app-small-spot\n    *ngFor=\"let product of products\"\n    [product]=\"product\"\n    [inCart]=\"cartIds.includes(product.id)\"\n    (addToCart)=\"addToCartHandler($event)\">\n  </app-small-spot>\n</div>\n"
+        },
+        {
+            "name": "TopBarComponent",
+            "id": "component-TopBarComponent-c29a3b85b2e5b51549a41c55b2a16d2031dcfac416231986ae815349eda0a3bab7f00ce44950e962a70f2d072f8229b89b06a479ec62005addd613015769b316",
+            "file": "src/app/components/top-bar/top-bar.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-top-bar",
+            "styleUrls": [
+                "./top-bar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./top-bar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "cart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "Cart",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clearCart",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "removeItemFromCart",
+                    "defaultValue": "new EventEmitter<CartItem>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "clearCartHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "removeItemHandler",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "CartItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Cart, CartItem } from '../../../models/Cart';\n\n@Component({\n  selector: 'app-top-bar',\n  templateUrl: './top-bar.component.html',\n  styleUrls: ['./top-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TopBarComponent {\n  @Input() cart: Cart;\n\n  @Output() removeItemFromCart = new EventEmitter<CartItem>();\n  @Output() clearCart = new EventEmitter<Event>();\n\n  removeItemHandler(item: CartItem) {\n    this.removeItemFromCart.emit(item);\n  }\n\n  clearCartHandler(event: Event) {\n    this.clearCart.emit(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".top-bar {\n  background: linear-gradient(360deg, rgba(220, 220, 220, 0.0001) 0%, rgba(255, 255, 255, 0.5) 93.45%, rgba(255, 255, 255, 0.49) 100%), #DEDEDE;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 0 15px rgba(0, 0, 0, 0.15);\n  box-sizing: content-box;\n  z-index: 2;\n\n  .content {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 59px;\n\n    > img {\n      height: 37px;\n    }\n  }\n}\n",
+                    "styleUrl": "./top-bar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"layout top-bar\">\n  <div class=\"content\">\n    <img alt=\"logo\" src=\"/assets/images/Logo.svg\">\n    <app-cart [cart]=\"cart\" (removeItem)=\"removeItemHandler($event)\" (clearCart)=\"clearCartHandler($event)\"></app-cart>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "TypographyComponent",
+            "id": "component-TypographyComponent-1d6b923269b8310b962f03fae05fd3ec87ea0df3bdda4f95fd2de6f42d1de3962004f906f0e9918c2c976d9711a8a52543bd5e5364a3067b3d624b7973f7246d",
+            "file": "src/app/components/typography/typography.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-typography",
+            "styleUrls": [
+                "./typography.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./typography.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "fontSize",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "fontWeight",
+                    "defaultValue": "'regular'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "TypographyWeight",
+                    "decorators": []
+                },
+                {
+                    "name": "lineHeight",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "underline",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "uppercase",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'label'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "TypographyVariant",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { TypographyVariant, TypographyWeight } from './typography.type';\n\n@Component({\n  selector: 'app-typography',\n  templateUrl: './typography.component.html',\n  styleUrls: ['./typography.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TypographyComponent {\n  @Input() variant: TypographyVariant = 'label';\n  @Input() fontWeight: TypographyWeight = 'regular';\n  @Input() uppercase = true;\n  @Input() underline = false;\n  @Input() color?: string;\n  @Input() fontSize?: string;\n  @Input() lineHeight?: string;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '~src/assets/styles/variables';\n\nspan {\n  font-family: $font-family;\n\n  &.uppercase {\n    text-transform: uppercase;\n  }\n\n  &.underline {\n    text-decoration-line: underline;\n  }\n\n  &.regular {\n    font-weight: 400;\n  }\n\n  &.semi-bold {\n    font-weight: 600;\n  }\n\n  &.bold {\n    font-weight: 700;\n  }\n\n  &.label {\n    font-size: 14px;\n    line-height: 17px;\n    color: $dark-gray;\n  }\n\n  &.bg-label {\n    font-size: 15px;\n    line-height: 17.58px;\n    color: $dark;\n  }\n\n  &.sm-label {\n    font-size: 13px;\n    line-height: 15.23px;\n    color: $medium-gray;\n  }\n\n  &.xsm-label {\n    font-size: 12px;\n    line-height: 13px;\n    color: $dark-gray;\n  }\n}\n",
+                    "styleUrl": "./typography.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<span [class]=\"[variant, fontWeight]\"\n      [class.uppercase]=\"uppercase\"\n      [class.underline]=\"underline\"\n      [style.color]=\"color\"\n      [style.line-height]=\"lineHeight\"\n      [style.font-size]=\"fontSize\">\n  <ng-content></ng-content>\n</span>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-4bbdcee29e0a8a9285e14d50d0e864425f3522a57d1c677fb001b6d2b32d49370614349160f4b89e34d41ddf90416e1c4668abbd5db44a8b2c8440382a6cc751",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonComponent } from './components/button/button.component';\nimport { TypographyComponent } from './components/typography/typography.component';\nimport { SmallSpotComponent } from './components/small-spot/small-spot.component';\nimport { DiscountBadgeComponent } from './components/discount-badge/discount-badge.component';\nimport { GameSpotComponent } from './components/game-spot/game-spot.component';\nimport { CartComponent } from './components/cart/cart.component';\nimport { CartButtonComponent } from './components/cart/cart-button/cart-button.component';\nimport { CartItemComponent } from './components/cart/cart-item/cart-item.component';\nimport { CartPopupComponent } from './components/cart/cart-popup/cart-popup.component';\nimport { TopBarComponent } from './components/top-bar/top-bar.component';\nimport { SpotListComponent } from './components/spot-list/spot-list.component';\nimport { HttpClientModule } from '@angular/common/http';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    ButtonComponent,\n    TypographyComponent,\n    SmallSpotComponent,\n    DiscountBadgeComponent,\n    GameSpotComponent,\n    CartComponent,\n    CartButtonComponent,\n    CartItemComponent,\n    CartPopupComponent,\n    TopBarComponent,\n    SpotListComponent\n  ],\n  imports: [\n    BrowserModule,\n    HttpClientModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "CartButtonComponent"
+                        },
+                        {
+                            "name": "CartComponent"
+                        },
+                        {
+                            "name": "CartItemComponent"
+                        },
+                        {
+                            "name": "CartPopupComponent"
+                        },
+                        {
+                            "name": "DiscountBadgeComponent"
+                        },
+                        {
+                            "name": "GameSpotComponent"
+                        },
+                        {
+                            "name": "SmallSpotComponent"
+                        },
+                        {
+                            "name": "SpotListComponent"
+                        },
+                        {
+                            "name": "TopBarComponent"
+                        },
+                        {
+                            "name": "TypographyComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Active",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "cart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateCart()"
+            },
+            {
+                "name": "cart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateCart()"
+            },
+            {
+                "name": "cart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateCart()"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "discount",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{...product, owned: false, inCart: false}"
+            },
+            {
+                "name": "Empty",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "generate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Cart.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): Cart => ({\n  itemsNo: faker.datatype.number(10),\n  price: faker.commerce.price(),\n  items: generateMany(faker.datatype.number({min: 2, max: 5}))\n})"
+            },
+            {
+                "name": "generate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Product.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): Product => ({\n  id: faker.datatype.number().toString(),\n  name: faker.commerce.productName(),\n  price: faker.commerce.price(),\n  imageUrl: faker.random.arrayElement(images),\n  discount: String(faker.datatype.number({min: 1, max: 99}) / 100),\n  owned: faker.datatype.boolean(),\n})"
+            },
+            {
+                "name": "generateDaily",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Product.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): DailyProduct => ({\n  id: faker.datatype.number().toString(),\n  imageUrl: 'assets/images/game.png',\n})"
+            },
+            {
+                "name": "generateItem",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Cart.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): CartItem => ({\n  id: faker.datatype.number().toString(),\n  name: faker.commerce.productName(),\n  price: faker.commerce.price(),\n  imageUrl: faker.random.arrayElement(images),\n  productId: faker.datatype.number().toString(),\n})"
+            },
+            {
+                "name": "generateMany",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Cart.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(length: number): CartItem[] => Array.from({length}).map(generateItem)"
+            },
+            {
+                "name": "generateMany",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Product.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(length: number): Product[] => Array.from({length}).map(generate)"
+            },
+            {
+                "name": "images",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Cart.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "['assets/images/img.png','assets/images/img2.png','assets/images/img3.png', 'assets/images/img4.png', 'assets/images/img5.png']"
+            },
+            {
+                "name": "images",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/mockups/Product.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "['assets/images/img.png','assets/images/img2.png','assets/images/img3.png', 'assets/images/img4.png', 'assets/images/img5.png']"
+            },
+            {
+                "name": "inCart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{...product, inCart: true, owned: false}"
+            },
+            {
+                "name": "InCart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "initCart",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Cart",
+                "defaultValue": "{\n  items: [],\n  itemsNo: 0,\n  price: '0'\n}"
+            },
+            {
+                "name": "item",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateItem()"
+            },
+            {
+                "name": "labels",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\n  owned: 'owned',\n  inCart: 'in cart',\n} as const"
+            },
+            {
+                "name": "mapProductToCartItem",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/services/mock-server/utils.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "({imageUrl, name, price, id}: Product): Omit<CartItem, 'id'> => ({\n  productId: id,\n  imageUrl,\n  name,\n  price,\n})"
+            },
+            {
+                "name": "NoDiscount",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "owned",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{...product, owned: true, inCart: false}"
+            },
+            {
+                "name": "Owned",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "priced",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{...product, owned: false, inCart: false}"
+            },
+            {
+                "name": "Priced",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/discount-badge/discount-badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/game-spot/game-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/spot-list/spot-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "product",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/game-spot/game-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateDaily()"
+            },
+            {
+                "name": "product",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateProduct()"
+            },
+            {
+                "name": "products",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/spot-list/spot-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "generateMany(5)"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/discount-badge/discount-badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DiscountBadgeComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CartComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `<div style=\"position: absolute; right: 0\"><app-cart [cart]=\"cart\"></app-cart></div>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/game-spot/game-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GameSpotComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/small-spot/small-spot.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SmallSpotComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/spot-list/spot-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SpotListComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TopBarComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TypographyComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `<app-typography>${TEXT}</app-typography>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CartButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CartItemComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CartPopupComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "TEXT",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Lorem ipsum'"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "ButtonSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"regular\" | \"small\"",
+                "file": "src/app/components/button/button.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "ButtonType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"button\" | \"submit\"",
+                "file": "src/app/components/button/button.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "ButtonVariant",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"secondary\" | \"outlined\"",
+                "file": "src/app/components/button/button.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "CartItem",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "src/models/Cart.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            },
+            {
+                "name": "DailyProduct",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "Pick<Product | \"id\" | \"imageUrl\">",
+                "file": "src/models/Product.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 177
+            },
+            {
+                "name": "TypographyVariant",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"label\" | \"bg-label\" | \"sm-label\" | \"xsm-label\"",
+                "file": "src/app/components/typography/typography.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "TypographyWeight",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"regular\" | \"semi-bold\" | \"bold\"",
+                "file": "src/app/components/typography/typography.type.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/components/cart/cart-button/cart-button.stories.ts": [
+                {
+                    "name": "Active",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Empty",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CartButtonComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/cart/cart.stories.ts": [
+                {
+                    "name": "cart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateCart()"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CartComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `<div style=\"position: absolute; right: 0\"><app-cart [cart]=\"cart\"></app-cart></div>`\n})"
+                }
+            ],
+            "src/app/components/top-bar/top-bar.stories.ts": [
+                {
+                    "name": "cart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateCart()"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TopBarComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/cart/cart-popup/cart-popup.stories.ts": [
+                {
+                    "name": "cart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateCart()"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CartPopupComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "src/app/components/small-spot/small-spot.stories.ts": [
+                {
+                    "name": "discount",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{...product, owned: false, inCart: false}"
+                },
+                {
+                    "name": "inCart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{...product, inCart: true, owned: false}"
+                },
+                {
+                    "name": "InCart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "NoDiscount",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "owned",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{...product, owned: true, inCart: false}"
+                },
+                {
+                    "name": "Owned",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "priced",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{...product, owned: false, inCart: false}"
+                },
+                {
+                    "name": "Priced",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "product",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateProduct()"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SmallSpotComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/mockups/Cart.ts": [
+                {
+                    "name": "generate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Cart.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): Cart => ({\n  itemsNo: faker.datatype.number(10),\n  price: faker.commerce.price(),\n  items: generateMany(faker.datatype.number({min: 2, max: 5}))\n})"
+                },
+                {
+                    "name": "generateItem",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Cart.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): CartItem => ({\n  id: faker.datatype.number().toString(),\n  name: faker.commerce.productName(),\n  price: faker.commerce.price(),\n  imageUrl: faker.random.arrayElement(images),\n  productId: faker.datatype.number().toString(),\n})"
+                },
+                {
+                    "name": "generateMany",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Cart.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(length: number): CartItem[] => Array.from({length}).map(generateItem)"
+                },
+                {
+                    "name": "images",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Cart.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "['assets/images/img.png','assets/images/img2.png','assets/images/img3.png', 'assets/images/img4.png', 'assets/images/img5.png']"
+                }
+            ],
+            "src/mockups/Product.ts": [
+                {
+                    "name": "generate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Product.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): Product => ({\n  id: faker.datatype.number().toString(),\n  name: faker.commerce.productName(),\n  price: faker.commerce.price(),\n  imageUrl: faker.random.arrayElement(images),\n  discount: String(faker.datatype.number({min: 1, max: 99}) / 100),\n  owned: faker.datatype.boolean(),\n})"
+                },
+                {
+                    "name": "generateDaily",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Product.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): DailyProduct => ({\n  id: faker.datatype.number().toString(),\n  imageUrl: 'assets/images/game.png',\n})"
+                },
+                {
+                    "name": "generateMany",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Product.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(length: number): Product[] => Array.from({length}).map(generate)"
+                },
+                {
+                    "name": "images",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/mockups/Product.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "['assets/images/img.png','assets/images/img2.png','assets/images/img3.png', 'assets/images/img4.png', 'assets/images/img5.png']"
+                }
+            ],
+            "src/app/app.component.ts": [
+                {
+                    "name": "initCart",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Cart",
+                    "defaultValue": "{\n  items: [],\n  itemsNo: 0,\n  price: '0'\n}"
+                }
+            ],
+            "src/app/components/cart/cart-item/cart-item.stories.ts": [
+                {
+                    "name": "item",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateItem()"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CartItemComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/small-spot/small-spot.component.ts": [
+                {
+                    "name": "labels",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/small-spot/small-spot.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\n  owned: 'owned',\n  inCart: 'in cart',\n} as const"
+                }
+            ],
+            "src/app/services/mock-server/utils.ts": [
+                {
+                    "name": "mapProductToCartItem",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/services/mock-server/utils.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "({imageUrl, name, price, id}: Product): Omit<CartItem, 'id'> => ({\n  productId: id,\n  imageUrl,\n  name,\n  price,\n})"
+                }
+            ],
+            "src/app/components/button/button.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/discount-badge/discount-badge.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/discount-badge/discount-badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/discount-badge/discount-badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DiscountBadgeComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/game-spot/game-spot.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/game-spot/game-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "product",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/game-spot/game-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateDaily()"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/game-spot/game-spot.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<GameSpotComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/spot-list/spot-list.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/spot-list/spot-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "products",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/spot-list/spot-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "generateMany(5)"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/spot-list/spot-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SpotListComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/components/typography/typography.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TypographyComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `<app-typography>${TEXT}</app-typography>`\n})"
+                },
+                {
+                    "name": "TEXT",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Lorem ipsum'"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/components/button/button.type.ts": [
+                {
+                    "name": "ButtonSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"regular\" | \"small\"",
+                    "file": "src/app/components/button/button.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "ButtonType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"button\" | \"submit\"",
+                    "file": "src/app/components/button/button.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "ButtonVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"secondary\" | \"outlined\"",
+                    "file": "src/app/components/button/button.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
+            "src/models/Cart.ts": [
+                {
+                    "name": "CartItem",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "src/models/Cart.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/models/Product.ts": [
+                {
+                    "name": "DailyProduct",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "Pick<Product | \"id\" | \"imageUrl\">",
+                    "file": "src/models/Product.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 177
+                }
+            ],
+            "src/app/components/typography/typography.type.ts": [
+                {
+                    "name": "TypographyVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"label\" | \"bg-label\" | \"sm-label\" | \"xsm-label\"",
+                    "file": "src/app/components/typography/typography.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "TypographyWeight",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"regular\" | \"semi-bold\" | \"bold\"",
+                    "file": "src/app/components/typography/typography.type.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initCart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-button/cart-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CartButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Active",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Empty",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-button/cart-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-item/cart-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CartItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "item",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-item/cart-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-popup/cart-popup.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CartPopupComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "cart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart-popup/cart-popup.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "cart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/cart/cart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/discount-badge/discount-badge.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DiscountBadgeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/discount-badge/discount-badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/discount-badge/discount-badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/game-spot/game-spot.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GameSpotComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/game-spot/game-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/game-spot/game-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "product",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/game-spot/game-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SmallSpotComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "labels",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "discount",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inCart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InCart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoDiscount",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "owned",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Owned",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "priced",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Priced",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "product",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/small-spot/small-spot.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/spot-list/spot-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SpotListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/spot-list/spot-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/spot-list/spot-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "products",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/spot-list/spot-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/top-bar/top-bar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TopBarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/top-bar/top-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "cart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/top-bar/top-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/top-bar/top-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/typography/typography.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TypographyComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TEXT",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/cart/cart.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "CartService",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/mock-server/mock-server.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MockServerService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/mock-server/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mapProductToCartItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/products/products.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ProductsService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Cart.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Cart.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generateItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Cart.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generateMany",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Cart.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "images",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Product.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Product.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generateDaily",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Product.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generateMany",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/mockups/Product.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "images",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/models/Cart.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Cart",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/models/Product.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Product",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

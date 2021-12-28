@@ -1,0 +1,18 @@
+<div class="small-spot" role="listitem">
+  <img alt="product-image" [src]="data?.imageUrl">
+  <div>
+    <div class="name-wrapper">
+      <app-typography fontWeight="semi-bold">{{data?.name}}</app-typography>
+    </div>
+    <div class="price-wrapper">
+      <app-discount-badge *ngIf="data.discount" [value]="data.discount"></app-discount-badge>
+      <app-button [label]="priceLabel"
+                  [disabled]="buttonDisabled"
+                  [inactive]="buttonInactive"
+                  size="small"
+                  variant="outlined"
+                  (buttonClick)="addToCartHandler()">
+      </app-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="layout top-bar">
+  <div class="content">
+    <img alt="logo" src="/assets/images/Logo.svg">
+    <app-cart [cart]="cart" (removeItem)="removeItemHandler($event)" (clearCart)="clearCartHandler($event)"></app-cart>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+@import '~src/assets/styles/variables';
+
+span {
+  font-family: $font-family;
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.underline {
+    text-decoration-line: underline;
+  }
+
+  &.regular {
+    font-weight: 400;
+  }
+
+  &.semi-bold {
+    font-weight: 600;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.label {
+    font-size: 14px;
+    line-height: 17px;
+    color: $dark-gray;
+  }
+
+  &.bg-label {
+    font-size: 15px;
+    line-height: 17.58px;
+    color: $dark;
+  }
+
+  &.sm-label {
+    font-size: 13px;
+    line-height: 15.23px;
+    color: $medium-gray;
+  }
+
+  &.xsm-label {
+    font-size: 12px;
+    line-height: 13px;
+    color: $dark-gray;
+  }
+}

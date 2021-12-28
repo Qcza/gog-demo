@@ -1,0 +1,4 @@
+<div role="button" class="cart-button" [class.active]="active" (click)="clickHandler($event)">
+  <img alt="cart-icon" src="assets/icons/cart.svg" >
+  <app-typography *ngIf="itemsNo > 0" fontWeight="semi-bold" color="#404040">{{itemsNo}}</app-typography>
+</div>

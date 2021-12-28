@@ -1,0 +1,12 @@
+<div class="cart-popup">
+  <div class="top-row">
+    <app-typography variant="bg-label" fontWeight="bold">{{label}}</app-typography>
+    <div>
+      <app-typography variant="bg-label" fontWeight="bold">${{data?.price ?? 0}}</app-typography>
+      <app-button label="clear cart" (buttonClick)="clearHandler($event)" [disabled]="(data?.itemsNo ?? 0) < 1"></app-button>
+    </div>
+  </div>
+  <ng-container *ngIf="data?.items">
+    <app-cart-item *ngFor="let item of data.items" [item]="item" (remove)="removeHandler($event)"></app-cart-item>
+  </ng-container>
+</div>

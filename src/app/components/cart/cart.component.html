@@ -1,0 +1,9 @@
+<div class="cart" #cartElement>
+  <app-cart-button (buttonClick)="togglePopup()" [active]="active" [itemsNo]="cart?.itemsNo"></app-cart-button>
+  <app-cart-popup
+    *ngIf="active"
+    [cart]="cart"
+    (removeItem)="removeItemHandler($event)"
+    (clearCart)="clearCartHandler($event)">
+  </app-cart-popup>
+</div>

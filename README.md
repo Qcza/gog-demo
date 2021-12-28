@@ -1,5 +1,16 @@
 # GogDemo
 
+Gog page demo
+
+## Tech stack
+
+- Angular 12
+- MirageJS
+
+For the full list of used vendors please review `package.json`
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.14.
 
 ## Development server
